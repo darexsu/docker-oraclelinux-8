@@ -3,9 +3,6 @@ name: Build
 
 on:
   pull_request:
-  push:
-    branches:
-      - master
   schedule:
     - cron: "10 2 * * 0"
 
@@ -25,7 +22,7 @@ jobs:
         run: docker run --name test-container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-ansible
 
       - name: Verify Ansible is accessible in the built image.
-        run: docker exec --tty test-container env TERM=xterm ansible --version
+        run: docker exec --tty test-container env TERM=xterm systemctl --version
 
   # If on master branch, build and release image.
   release:
@@ -52,4 +49,4 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64
           push: true
-          tags: ${{ github.repository }}:latest
+          tags: darexsu/molecule-oraclelinux-8:latest
