@@ -13,7 +13,7 @@ driver:
   name: docker
 platforms:
   - name: instance
-    image: "darexsu/docker-oraclelinux-8:latest"
+    image: "darexsu/molecule-oraclelinux-8:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
