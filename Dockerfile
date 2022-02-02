@@ -16,10 +16,10 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 # Install requirements.
-RUN yum -y install rpm dnf-plugins-core \
- && yum -y update \
- && yum -y config-manager --set-enabled powertools \
- && yum -y install \
+RUN dnf -y install rpm dnf-plugins-core \
+ && dnf -y update \
+ && dnf -y config-manager --set-enabled powertools \
+ && dnf -y install \
       epel-release \
       initscripts \
       sudo \
@@ -29,7 +29,7 @@ RUN yum -y install rpm dnf-plugins-core \
       python3 \
       python3-pip \
       python3-pyyaml \
- && yum clean all
+ && dnf clean all
 
 # Upgrade pip to latest version.
 RUN pip3 install --upgrade pip
