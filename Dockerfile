@@ -25,6 +25,7 @@ RUN yum -y install rpm dnf-plugins-core \
       hostname \
       python3 \
       python3-pip \
+      wget \
  && yum clean all
 
 # Upgrade pip to latest version.
