@@ -18,13 +18,17 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 # Install requirements.
 RUN yum -y install rpm dnf-plugins-core \
  && yum -y update \
+ && yum -y config-manager --set-enabled powertools \
  && yum -y install \
+      epel-release \
       initscripts \
       sudo \
       which \
       hostname \
+      libyaml-devel \
       python3 \
       python3-pip \
+      python3-pyyaml \
       wget \
  && yum clean all
 
