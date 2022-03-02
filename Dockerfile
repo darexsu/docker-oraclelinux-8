@@ -20,12 +20,10 @@ RUN yum -y install rpm dnf-plugins-core \
  && yum -y update \
  && yum -y config-manager --set-enabled \
  && yum -y install \
-      epel-release \
       initscripts \
       sudo \
       which \
       hostname \
-      libyaml-devel \
       python3 \
       python3-pip \
       python3-pyyaml \
